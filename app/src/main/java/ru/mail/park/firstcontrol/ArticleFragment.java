@@ -15,18 +15,21 @@ import java.util.Locale;
 import ru.mail.park.articlelistlib.Article;
 
 public class ArticleFragment extends Fragment {
+    public static final String KEY = "article";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_article, container, false);
 
-        Article article = (Article) getArguments().getSerializable("article");
+        Article article = (Article) getArguments().getSerializable(KEY);
+        assert article != null;
 
         TextView titleView = result.findViewById(R.id.article_title);
         titleView.setText(article.getTitle());
 
         TextView dateView = result.findViewById(R.id.article_date);
-        DateFormat dateFormat = new SimpleDateFormat("MMM dd hh:mm:ss", Locale.ENGLISH);
+        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z", Locale.ENGLISH);
         dateView.setText(dateFormat.format(article.getDate()));
 
         TextView contentView = result.findViewById(R.id.article_content);

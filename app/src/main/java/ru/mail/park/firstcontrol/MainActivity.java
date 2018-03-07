@@ -9,6 +9,7 @@ import ru.mail.park.articlelistlib.OnArticleClickListener;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
+import static ru.mail.park.firstcontrol.ArticleFragment.KEY;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onArticleClick(Article article) {
                 Bundle articleBundle = new Bundle();
-                articleBundle.putSerializable("article", article);
+                articleBundle.putSerializable(KEY, article);
 
                 ArticleFragment articleFragment = new ArticleFragment();
                 articleFragment.setArguments(articleBundle);
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onArticleClick(Article article) {
                 Bundle articleBundle = new Bundle();
-                articleBundle.putSerializable("article", article);
+                articleBundle.putSerializable(KEY, article);
 
                 ArticleFragment articleFragment = new ArticleFragment();
                 articleFragment.setArguments(articleBundle);
