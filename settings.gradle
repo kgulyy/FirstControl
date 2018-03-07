@@ -1,0 +1,2 @@
+include ':app'
+include ':app', ':articlelistlib-release'
